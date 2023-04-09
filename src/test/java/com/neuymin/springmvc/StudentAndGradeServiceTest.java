@@ -119,5 +119,13 @@ public class StudentAndGradeServiceTest {
 
     }
 
+    @Test
+    public void createGradeServiceReturnFalse() {
+        Assertions.assertFalse(studentService.createGrade(105, 1, "Math"));
+        Assertions.assertFalse(studentService.createGrade(-5, 1, "Math"));
+        Assertions.assertFalse(studentService.createGrade(80.50, 2, "Math"));
+        Assertions.assertFalse(studentService.createGrade(80.50, 1, "Literature"));
+    }
+
 
 }
