@@ -22,7 +22,10 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-@TestPropertySource("/application.properties")
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+@TestPropertySource("/application-test.properties")
 @SpringBootTest
 public class StudentAndGradeServiceTest {
 
@@ -126,23 +129,25 @@ public class StudentAndGradeServiceTest {
     @Sql("/insertData.sql")
     @Test
     public void getGradeBookService() {
-        Iterable<CollegeStudent> iterableCollegeStudents = studentService.getGradeBook();
+
+        Iterable<CollegeStudent> iterableCollegeStudents = studentService.getGradebook();
+
         List<CollegeStudent> collegeStudents = new ArrayList<>();
 
         for (CollegeStudent collegeStudent : iterableCollegeStudents) {
             collegeStudents.add(collegeStudent);
         }
 
-        Assertions.assertEquals(5, collegeStudents.size());
+        assertEquals(5, collegeStudents.size());
     }
 
     @Test
     public void createGradeService() {
 
         // create the grade
-        Assertions.assertTrue(studentService.createGrade(80.50, 1, "Math"));
-        Assertions.assertTrue(studentService.createGrade(80.50, 1, "Science"));
-        Assertions.assertTrue(studentService.createGrade(80.50, 1, "History"));
+        Assertions.assertTrue(studentService.createGrade(80.50, 1, "math"));
+        Assertions.assertTrue(studentService.createGrade(80.50, 1, "science"));
+        Assertions.assertTrue(studentService.createGrade(80.50, 1, "history"));
 
         //get all grades with students
         Iterable<MathGrade> mathGrades = mathGradesDao.findGradeByStudentId(1);
@@ -158,23 +163,23 @@ public class StudentAndGradeServiceTest {
 
     @Test
     public void deleteGradeService() {
-        Assertions.assertEquals(1, studentService.deleteGrade(1, "Math"), "Returns student id after delete");
-        Assertions.assertEquals(1, studentService.deleteGrade(1, "Science"), "Returns student id after delete");
-        Assertions.assertEquals(1, studentService.deleteGrade(1, "History"), "Returns student id after delete");
+        Assertions.assertEquals(1, studentService.deleteGrade(1, "math"), "Returns student id after delete");
+        Assertions.assertEquals(1, studentService.deleteGrade(1, "science"), "Returns student id after delete");
+        Assertions.assertEquals(1, studentService.deleteGrade(1, "history"), "Returns student id after delete");
     }
 
     @Test
     public void deleteGradeServiceReturnStudentIdOfZero() {
-        Assertions.assertEquals(0, studentService.deleteGrade(0, "Science"), "No student should have 0 id");
-        Assertions.assertEquals(0, studentService.deleteGrade(1, "Literature"), "No student should have 0 id");
+        Assertions.assertEquals(0, studentService.deleteGrade(0, "science"), "No student should have 0 id");
+        Assertions.assertEquals(0, studentService.deleteGrade(1, "literature"), "No student should have 0 id");
     }
 
     @Test
     public void createGradeServiceReturnFalse() {
-        Assertions.assertFalse(studentService.createGrade(105, 1, "Math"));
-        Assertions.assertFalse(studentService.createGrade(-5, 1, "Math"));
-        Assertions.assertFalse(studentService.createGrade(80.50, 2, "Math"));
-        Assertions.assertFalse(studentService.createGrade(80.50, 1, "Literature"));
+        Assertions.assertFalse(studentService.createGrade(105, 1, "math"));
+        Assertions.assertFalse(studentService.createGrade(-5, 1, "math"));
+        Assertions.assertFalse(studentService.createGrade(80.50, 2, "math"));
+        Assertions.assertFalse(studentService.createGrade(80.50, 1, "literature"));
     }
 
     @Test

@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89b1ce0e-38fb-470b-9b68-632ca6fa30ac" name="Changes" comment="" />
+    <list default="true" id="89b1ce0e-38fb-470b-9b68-632ca6fa30ac" name="Changes" comment="failing tests added">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application-test.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/neuymin/springmvc/controller/GradebookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/neuymin/springmvc/controller/GradebookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/neuymin/springmvc/service/StudentAndGradeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/neuymin/springmvc/service/StudentAndGradeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/studentInformation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/studentInformation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/neuymin/springmvc/GradebookControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/neuymin/springmvc/GradebookControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/neuymin/springmvc/StudentAndGradeServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/neuymin/springmvc/StudentAndGradeServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/neuymin/springmvc/controller/GradebookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/neuymin/springmvc/controller/GradebookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/neuymin/springmvc/service/StudentAndGradeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/neuymin/springmvc/service/StudentAndGradeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/studentInformation.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/studentInformation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/neuymin/springmvc/GradebookControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/neuymin/springmvc/GradebookControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/neuymin/springmvc/StudentAndGradeServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/neuymin/springmvc/StudentAndGradeServiceTest.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +34,9 @@
         <option value="Interface" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -45,8 +65,9 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ToolWindowRun.ShowToolbar": "false",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/spring-boot-unit-testing-main/3.00-starting-project",
+    "last_opened_file_path": "D:/spring-boot-unit-testing-main/3.01-starting-project-solutions/3.01-38-solution-update-app-to-connect-to-mysql",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -56,7 +77,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.StudentAndGradeServiceTest.createGradeService">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\spring-boot-unit-testing-main\3.00-starting-project\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.MvcTestingExampleApplication">
     <configuration name="GradebookControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-mvc-testing-demo" />
       <extension name="coverage">
@@ -65,14 +91,14 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.luv2code.springmvc" />
+      <option name="PACKAGE_NAME" value="com.neuymin.springmvc" />
       <option name="MAIN_CLASS_NAME" value="com.neuymin.springmvc.GradebookControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GradebookControllerTest.createStudentHttpRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GradebookControllerTest.createANonValidGradeHttpRequestGradeTypeDoesNotExistEmptyResponse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-mvc-testing-demo" />
       <extension name="coverage">
         <pattern>
@@ -80,15 +106,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.luv2code.springmvc" />
+      <option name="PACKAGE_NAME" value="com.neuymin.springmvc" />
       <option name="MAIN_CLASS_NAME" value="com.neuymin.springmvc.GradebookControllerTest" />
-      <option name="METHOD_NAME" value="createStudentHttpRequest" />
+      <option name="METHOD_NAME" value="createANonValidGradeHttpRequestGradeTypeDoesNotExistEmptyResponse" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GradebookControllerTest.deleteStudentHttpRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GradebookControllerTest.createValidGradeHttpRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-mvc-testing-demo" />
       <extension name="coverage">
         <pattern>
@@ -96,9 +122,9 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.luv2code.springmvc" />
+      <option name="PACKAGE_NAME" value="com.neuymin.springmvc" />
       <option name="MAIN_CLASS_NAME" value="com.neuymin.springmvc.GradebookControllerTest" />
-      <option name="METHOD_NAME" value="deleteStudentHttpRequest" />
+      <option name="METHOD_NAME" value="createValidGradeHttpRequest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -119,7 +145,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StudentAndGradeServiceTest.createGradeService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StudentAndGradeServiceTest.studentInformationServiceReturnNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-mvc-testing-demo" />
       <extension name="coverage">
         <pattern>
@@ -127,9 +153,9 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.luv2code.springmvc" />
+      <option name="PACKAGE_NAME" value="com.neuymin.springmvc" />
       <option name="MAIN_CLASS_NAME" value="com.neuymin.springmvc.StudentAndGradeServiceTest" />
-      <option name="METHOD_NAME" value="createGradeService" />
+      <option name="METHOD_NAME" value="studentInformationServiceReturnNull" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -144,11 +170,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StudentAndGradeServiceTest.createGradeService" />
         <item itemvalue="JUnit.StudentAndGradeServiceTest" />
         <item itemvalue="JUnit.GradebookControllerTest" />
-        <item itemvalue="JUnit.GradebookControllerTest.deleteStudentHttpRequest" />
-        <item itemvalue="JUnit.GradebookControllerTest.createStudentHttpRequest" />
+        <item itemvalue="JUnit.GradebookControllerTest.createANonValidGradeHttpRequestGradeTypeDoesNotExistEmptyResponse" />
+        <item itemvalue="JUnit.GradebookControllerTest.createValidGradeHttpRequest" />
+        <item itemvalue="JUnit.StudentAndGradeServiceTest.studentInformationServiceReturnNull" />
       </list>
     </recent_temporary>
   </component>
@@ -163,11 +189,66 @@
       <workItem from="1680933882291" duration="11000" />
       <workItem from="1680941555838" duration="287000" />
       <workItem from="1680941874906" duration="9724000" />
-      <workItem from="1681020138523" duration="2308000" />
+      <workItem from="1681020138523" duration="16395000" />
+      <workItem from="1681100230216" duration="4065000" />
     </task>
+    <task id="LOCAL-00001" summary="added failing tests">
+      <created>1681024713197</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681024713197</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added failing tests">
+      <created>1681024778810</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681024778810</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added additional functionality and tests">
+      <created>1681033025765</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681033025765</updated>
+    </task>
+    <task id="LOCAL-00004" summary="inject SQL into tests and refactor code">
+      <created>1681037312991</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681037312991</updated>
+    </task>
+    <task id="LOCAL-00005" summary="failing tests added">
+      <created>1681054974928</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681054974928</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added failing tests" />
+    <MESSAGE value="added additional functionality and tests" />
+    <MESSAGE value="inject SQL into tests and refactor code" />
+    <MESSAGE value="failing tests added" />
+    <option name="LAST_COMMIT_MESSAGE" value="failing tests added" />
   </component>
 </project>

@@ -18,7 +18,7 @@ public class GradebookController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getStudents(Model m) {
-        Iterable<CollegeStudent> collegeStudents = studentAndGradeService.getGradeBook();
+        Iterable<CollegeStudent> collegeStudents = studentAndGradeService.getGradebook();
         m.addAttribute("students", collegeStudents);
         return "index";
     }
@@ -27,9 +27,8 @@ public class GradebookController {
     public String createStudent(@ModelAttribute("student") CollegeStudent student, Model m) {
         studentAndGradeService.createStudent(student.getFirstname(), student.getLastname(),
                 student.getEmailAddress());
-        Iterable<CollegeStudent> collegeStudents = studentAndGradeService.getGradeBook();
+        Iterable<CollegeStudent> collegeStudents = studentAndGradeService.getGradebook();
         m.addAttribute("students", collegeStudents);
-
         return "index";
     }
 
@@ -39,7 +38,7 @@ public class GradebookController {
         if(!studentAndGradeService.checkStudentIsNull(id)) return "error";
 
         studentAndGradeService.deleteStudent(id);
-        Iterable<CollegeStudent> collegeStudents = studentAndGradeService.getGradeBook();
+        Iterable<CollegeStudent> collegeStudents = studentAndGradeService.getGradebook();
         m.addAttribute("students", collegeStudents);
         return "index";
     }
@@ -49,31 +48,42 @@ public class GradebookController {
 
         if(!studentAndGradeService.checkStudentIsNull(id)) return "error";
 
-        GradebookCollegeStudent studentEntity = studentAndGradeService.studentInformation(id);
-        m.addAttribute("student", studentEntity);
-        if(studentEntity.getStudentGrades().getMathGradeResults().size() > 0) {
-            m.addAttribute("mathAverage", studentEntity.getStudentGrades().findGradePointAverage(
-                    studentEntity.getStudentGrades().getMathGradeResults()
-            ));
-        } else {
-            m.addAttribute("mathAverage", "N/A");
+        studentAndGradeService.configureStudentInformationModel(id, m);
+
+        return "studentInformation";
+    }
+
+    @PostMapping(value = "/grades")
+    public String createGrade(@RequestParam("grade") double grade,
+                              @RequestParam("gradeType") String gradeType,
+                              @RequestParam("studentId") int studentId,
+                              Model m) {
+
+        if (!studentAndGradeService.checkStudentIsNull(studentId)) {
+            return "error";
         }
 
-        if(studentEntity.getStudentGrades().getScienceGradeResults().size() > 0) {
-            m.addAttribute("scienceAverage", studentEntity.getStudentGrades().findGradePointAverage(
-                    studentEntity.getStudentGrades().getScienceGradeResults()
-            ));
-        } else {
-            m.addAttribute("scienceAverage", "N/A");
+        boolean success = studentAndGradeService.createGrade(grade, studentId, gradeType);
+
+        if (!success) {
+            return "error";
         }
 
-        if(studentEntity.getStudentGrades().getHistoryGradeResults().size() > 0) {
-            m.addAttribute("historyAverage", studentEntity.getStudentGrades().findGradePointAverage(
-                    studentEntity.getStudentGrades().getHistoryGradeResults()
-            ));
-        } else {
-            m.addAttribute("historyAverage", "N/A");
+        studentAndGradeService.configureStudentInformationModel(studentId, m);
+
+        return "studentInformation";
+    }
+
+    @GetMapping("/grades/{id}/{gradeType}")
+    public String studentInformation(@PathVariable int id, @PathVariable String gradeType, Model m) {
+
+        int studentId = studentAndGradeService.deleteGrade(id, gradeType);
+
+        if(studentId == 0) {
+            return "error";
         }
+
+        studentAndGradeService.configureStudentInformationModel(studentId, m);
 
         return "studentInformation";
     }

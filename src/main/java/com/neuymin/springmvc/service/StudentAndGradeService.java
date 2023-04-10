@@ -8,6 +8,7 @@ import com.neuymin.springmvc.repository.StudentDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -64,7 +65,7 @@ public class StudentAndGradeService {
 
     }
 
-    public Iterable<CollegeStudent> getGradeBook() {
+    public Iterable<CollegeStudent> getGradebook() {
         Iterable<CollegeStudent> collegeStudents = studentDao.findAll();
         return collegeStudents;
     }
@@ -74,7 +75,7 @@ public class StudentAndGradeService {
         if(!checkStudentIsNull(studentId)) return false;
 
         if(grade >= 0 && grade <= 100) {
-            if(gradeType.equals("Math")) {
+            if(gradeType.equals("math")) {
                 mathGrade.setId(0);
                 mathGrade.setGrade(grade);
                 mathGrade.setStudentId(studentId);
@@ -83,7 +84,7 @@ public class StudentAndGradeService {
                 return true;
             }
 
-            if(gradeType.equals("Science")) {
+            if(gradeType.equals("science")) {
                 scienceGrade.setId(0);
                 scienceGrade.setGrade(grade);
                 scienceGrade.setStudentId(studentId);
@@ -92,7 +93,7 @@ public class StudentAndGradeService {
                 return true;
             }
 
-            if(gradeType.equals("History")) {
+            if(gradeType.equals("history")) {
                 historyGrade.setId(0);
                 historyGrade.setGrade(grade);
                 historyGrade.setStudentId(studentId);
@@ -109,21 +110,21 @@ public class StudentAndGradeService {
 
         int studentId = 0;
 
-        if(gradeType.equals("Math")) {
+        if(gradeType.equals("math")) {
             Optional<MathGrade> grade = mathGradesDao.findById(id);
             if(!grade.isPresent()) {
                 return studentId;
             }
             studentId = grade.get().getStudentId();
             mathGradesDao.deleteById(id);
-        } else if(gradeType.equals("Science")) {
+        } else if(gradeType.equals("science")) {
             Optional<ScienceGrade> grade = scienceGradesDao.findById(id);
             if(!grade.isPresent()) {
                 return studentId;
             }
             studentId = grade.get().getStudentId();
             scienceGradesDao.deleteById(id);
-        } else if(gradeType.equals("History")) {
+        } else if(gradeType.equals("history")) {
             Optional<HistoryGrade> grade = historyGradesDao.findById(id);
             if(!grade.isPresent()) {
                 return studentId;
@@ -165,4 +166,35 @@ public class StudentAndGradeService {
 
         return  gradebookCollegeStudent;
     }
+
+    public void configureStudentInformationModel(int id, Model m) {
+
+        GradebookCollegeStudent studentEntity = studentInformation(id);
+
+        m.addAttribute("student", studentEntity);
+        if (studentEntity.getStudentGrades().getMathGradeResults().size() > 0) {
+            m.addAttribute("mathAverage", studentEntity.getStudentGrades().findGradePointAverage(
+                    studentEntity.getStudentGrades().getMathGradeResults()
+            ));
+        } else {
+            m.addAttribute("mathAverage", "N/A");
+        }
+
+        if (studentEntity.getStudentGrades().getScienceGradeResults().size() > 0) {
+            m.addAttribute("scienceAverage", studentEntity.getStudentGrades().findGradePointAverage(
+                    studentEntity.getStudentGrades().getScienceGradeResults()
+            ));
+        } else {
+            m.addAttribute("scienceAverage", "N/A");
+        }
+
+        if (studentEntity.getStudentGrades().getHistoryGradeResults().size() > 0) {
+            m.addAttribute("historyAverage", studentEntity.getStudentGrades().findGradePointAverage(
+                    studentEntity.getStudentGrades().getHistoryGradeResults()
+            ));
+        } else {
+            m.addAttribute("historyAverage", "N/A");
+        }
+    }
+
 }
